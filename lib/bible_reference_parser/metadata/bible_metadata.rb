@@ -35,6 +35,10 @@ module BibleReferenceParser
         index = book_name.downcase.gsub(/\s*\.*/, "")
         metadata[index]
       end
+
+      def book_names
+        BibleMetadata.metadata.collect {|book| book[1]['name']}.uniq
+      end
     end
     
     # Load the metadata on books and chapters from the yaml file
